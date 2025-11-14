@@ -1,0 +1,65 @@
+<div class="login-container">
+    <div class="form-wrapper">
+        
+        <div class="tabs">
+            <button class="tab-button active" onclick="showForm('login')">Login</button>
+            <button class="tab-button" onclick="showForm('signup')">Sign Up</button>
+        </div>
+
+        <form id="login-form" class="auth-form active">
+            <h2>Welcome Back</h2>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" required>
+            </div>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <button type="submit" class="btn btn-primary btn-full">Login</button>
+        </form>
+
+        <form id="signup-form" class="auth-form hidden">
+            <h2>Start Your Journey</h2>
+             <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Full Name" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Create Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function showForm(formId) {
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+        const loginButton = document.querySelector('.tabs .tab-button:nth-child(1)');
+        const signupButton = document.querySelector('.tabs .tab-button:nth-child(2)');
+
+        if (formId === 'login') {
+            loginForm.classList.add('active');
+            loginForm.classList.remove('hidden');
+            signupForm.classList.remove('active');
+            signupForm.classList.add('hidden');
+            loginButton.classList.add('active');
+            signupButton.classList.remove('active');
+        } else {
+            signupForm.classList.add('active');
+            signupForm.classList.remove('hidden');
+            loginForm.classList.remove('active');
+            loginForm.classList.add('hidden');
+            signupButton.classList.add('active');
+            loginButton.classList.remove('active');
+        }
+    }
+</script>
